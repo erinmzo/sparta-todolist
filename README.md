@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# 스파르타 투두리스트
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React와 TypeScript를 활용한 할 일 관리 웹 애플리케이션입니다.
 
-Currently, two official plugins are available:
+## 🛠 기술 스택
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend**: React 18
+- **언어**: TypeScript
+- **상태관리**: TanStack Query (React Query) v5
+- **스타일링**: TailwindCSS
+- **HTTP 클라이언트**: Axios
+- **라우팅**: React Router DOM v7
+- **개발 도구**:
+  - Vite
+  - ESLint
+  - TypeScript
 
-## Expanding the ESLint configuration
+## 🚀 주요 기능
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 할 일 목록 조회
+- 할 일 상세 보기
+- 로그인 / 회원가입 / 마이페이지
+- 로그인 상태 별 페이지 인가
 
-- Configure the top-level `parserOptions` property like this:
+## 📁 프로젝트 구조
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+sparta-todolist/
+├── src/
+│   ├── api/        # API 관련 로직
+│   ├── components/ # React 컴포넌트
+│   ├── constants/  # 상수 값 관리
+│   └── ...
+├── public/
+└── package.json
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🔍 주요 라이브러리 버전
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- React: ^18.3.1
+- React Query: ^5.64.1
+- TypeScript: ~5.6.2
+- Vite: ^6.0.5
+- TailwindCSS: ^3.4.17
+- Axios: ^1.7.9
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 👨‍💻 기여자
+
+- 기여도: 100%
+- 개발자: 조민수
