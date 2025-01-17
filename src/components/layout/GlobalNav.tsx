@@ -9,7 +9,7 @@ function GlobalNav() {
         </Link>
       </li>
       <li className="hover:text-skyblue-700">
-        <Link to="/login" className="hover:text-sky-700">
+        <Link to="/join" className="hover:text-sky-700">
           회원가입
         </Link>
       </li>

@@ -4,6 +4,7 @@ import DetailPage from "../pages/DetailPage";
 import HomePage from "../pages/HomePage";
 import JoinPage from "../pages/JoinPage";
 import LoginPage from "../pages/LoginPage";
+import MyPage from "../pages/MyPage";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,14 @@ export const router = createBrowserRouter([
   {
     path: "/join",
     element: <JoinPage />,
+  },
+  {
+    path: "/mypage",
+    element: (
+      // <ProtectedRoute>
+      <MyPage />
+      // </ProtectedRoute>
+    ),
   },
   {
     path: "*",

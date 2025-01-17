@@ -17,3 +17,11 @@ export const JOIN_VALIDATION = (nickname: string, id: string, password: string) 
   }
   return true;
 };
+
+export const LOGIN_VALIDATION = (id: string, password: string) => {
+  if (!id.trim() || !password.trim()) {
+    alert("아이디, 비밀번호, 닉네임을 모두 입력해주세요.");
+    return false;
+  }
+  return true;
+};

@@ -1,26 +1,59 @@
 import axios from "axios";
-import { JoinDataType } from "../types/auth";
+import { JoinDataType, LoginDataType } from "../types/auth";
 
 const token = localStorage.getItem("AccessToken");
 
 const authApi = axios.create({
   baseURL: "https://moneyfulpublicpolicy.co.kr/",
-  timeout: 10000,
+  timeout: 5000,
   headers: {
     "Content-Type": "application/json",
-    ...(token && { Authorization: `Bearer ${token}` }),
   },
 });
 
 export const authApiService = {
   join: async (joinData: JoinDataType) => {
     try {
-      const response = await authApi.post("/register", joinData);
-      console.log(response);
-      return response.data;
+      const { data } = await authApi.post("/register", joinData);
+      return data;
     } catch (error) {
-      console.error("회원가입 에러:", error);
-      throw error;
+      console.log(error);
+    }
+  },
+  login: async (loginData: LoginDataType) => {
+    try {
+      const { data } = await authApi.post("/login", loginData);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getUser: async () => {
+    try {
+      const { data } = await authApi.get("/user", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  updateProfile: async (avatar: string, nickname: string) => {
+    try {
+      const { data } = await authApi.patch(
+        "/profile",
+        { avatar, nickname },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      console.log(error);
     }
   },
 };

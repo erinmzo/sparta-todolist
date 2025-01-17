@@ -1,9 +1,9 @@
 // hooks/auth/useJoinForm.ts
 import { FormEvent } from "react";
+import { authApiService } from "../../api/authApi";
 import { JOIN_VALIDATION } from "../../constants/validation";
 import { JoinDataType } from "../../types/auth";
 import { useInputChange } from "../common/useInputChange";
-import { useJoin } from "./useJoin";
 
 export function useJoinForm() {
   const initialValue: JoinDataType = {
@@ -15,12 +15,11 @@ export function useJoinForm() {
   const { input, handleChange } = useInputChange<JoinDataType>(initialValue);
   const { nickname, id, password } = input;
 
-  const { join, isLoading } = useJoin();
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!JOIN_VALIDATION(nickname, id, password)) return;
-    join({ nickname, id, password });
+    const joinData = await authApiService.join({ nickname, id, password });
+    alert(joinData);
   };
 
   return {
@@ -29,6 +28,5 @@ export function useJoinForm() {
     password,
     handleChange,
     handleSubmit,
-    isLoading,
   };
 }

@@ -3,3 +3,8 @@ export type JoinDataType = {
   id: string;
   password: string;
 };
+
+export type LoginDataType = {
+  id: string;
+  password: string;
+};
