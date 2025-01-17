@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import ProtectedRoute from "../components/auth/ProtectRoute";
 import NotFound from "../components/common/NotFound";
 import DetailPage from "../pages/DetailPage";
 import HomePage from "../pages/HomePage";
@@ -26,9 +27,9 @@ export const router = createBrowserRouter([
   {
     path: "/mypage",
     element: (
-      // <ProtectedRoute>
-      <MyPage />
-      // </ProtectedRoute>
+      <ProtectedRoute>
+        <MyPage />
+      </ProtectedRoute>
     ),
   },
   {
