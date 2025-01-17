@@ -1,4 +1,5 @@
 import * as Sentry from "@sentry/react";
+import { HelmetProvider } from "react-helmet-async";
 import { RouterProvider } from "react-router-dom";
 import { useInitializeUser } from "./hooks/auth/useInitializeUser";
 import QueryProvider from "./provider/QueryProvider";
@@ -21,7 +22,9 @@ function App() {
 
   return (
     <QueryProvider>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </QueryProvider>
   );
 }
