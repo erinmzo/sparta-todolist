@@ -10,4 +10,16 @@ export default defineConfig({
       "/api": "https://moneyfulpublicpolicy.co.kr",
     },
   },
+  build: {
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          todo: ["./src/components/todo/Todo"],
+          todos: ["./src/components/todos/Todos"],
+        },
+      },
+    },
+  },
 });

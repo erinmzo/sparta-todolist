@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { todoApiSevice } from "../../api/todoApi";
+import { todoApiService } from "../../api/todoApi";
 
 export function getTodos() {
   const {
@@ -8,7 +8,7 @@ export function getTodos() {
     isError,
   } = useQuery({
     queryKey: ["todos"],
-    queryFn: todoApiSevice.getTodos,
+    queryFn: todoApiService.getTodos,
   });
   return { todos, isPending, isError };
 }

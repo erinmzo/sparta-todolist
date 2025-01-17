@@ -9,10 +9,11 @@ const todoApi = axios.create({
   },
 });
 
-export const todoApiSevice = {
+export const todoApiService = {
   getTodos: async () => {
     try {
-      todoApi.get("/todos").then((response) => response.data);
+      const response = await todoApi.get("/todos");
+      return response.data;
     } catch (error) {
       console.log(error);
       Sentry.captureException(error);
@@ -20,7 +21,8 @@ export const todoApiSevice = {
   },
   todoById: async (id: string) => {
     try {
-      todoApi.get(`/todos/${id}`).then((response) => response.data);
+      const response = await todoApi.get(`/todos/${id}`);
+      return response.data;
     } catch (error) {
       console.log(error);
       Sentry.captureException(error);

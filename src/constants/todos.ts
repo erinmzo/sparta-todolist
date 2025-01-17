@@ -1,5 +1,5 @@
 export const STATUS = {
-  COMPELTED: {
+  COMPLETED: {
     text: "완료",
     className: "text-red-500 border-red-500",
     description: "😎 와우! 멋지게 성공했어요.",

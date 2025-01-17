@@ -7,7 +7,7 @@ interface TodoCardProps {
   completed: boolean;
 }
 function TodoCard({ id, title, completed }: TodoCardProps) {
-  const status = completed ? STATUS.COMPELTED : STATUS.PENDING;
+  const status = completed ? STATUS.COMPLETED : STATUS.PENDING;
   return (
     <div className="relative bg-white rounded-lg py-4 px-6 h-[200px]">
       <Link to={`/todo/${id}`}>
