@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/react";
 import axios from "axios";
 
 const todoApi = axios.create({
@@ -9,6 +10,20 @@ const todoApi = axios.create({
 });
 
 export const todoApiSevice = {
-  getTodos: () => todoApi.get("/todos").then((response) => response.data),
-  todoById: (id: string) => todoApi.get(`/todos/${id}`).then((response) => response.data),
+  getTodos: async () => {
+    try {
+      todoApi.get("/todos").then((response) => response.data);
+    } catch (error) {
+      console.log(error);
+      Sentry.captureException(error);
+    }
+  },
+  todoById: async (id: string) => {
+    try {
+      todoApi.get(`/todos/${id}`).then((response) => response.data);
+    } catch (error) {
+      console.log(error);
+      Sentry.captureException(error);
+    }
+  },
 };

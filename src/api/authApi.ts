@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/react";
 import axios from "axios";
 import { JoinDataType, LoginDataType } from "../types/auth";
 
@@ -18,6 +19,7 @@ export const authApiService = {
       return data;
     } catch (error) {
       console.log(error);
+      Sentry.captureException(error);
     }
   },
   login: async (loginData: LoginDataType) => {
@@ -26,6 +28,7 @@ export const authApiService = {
       return data;
     } catch (error) {
       console.log(error);
+      Sentry.captureException(error);
     }
   },
   getUser: async () => {
@@ -38,6 +41,7 @@ export const authApiService = {
       return data;
     } catch (error) {
       console.log(error);
+      Sentry.captureException(error);
     }
   },
   updateProfile: async (avatar: string, nickname: string) => {
@@ -54,6 +58,7 @@ export const authApiService = {
       return data;
     } catch (error) {
       console.log(error);
+      Sentry.captureException(error);
     }
   },
 };
