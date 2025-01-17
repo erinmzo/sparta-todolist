@@ -5,4 +5,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   css: { postcss: { plugins: [tailwindcss()] } },
+  server: {
+    proxy: {
+      "/api": "https://moneyfulpublicpolicy.co.kr",
+    },
+  },
 });
