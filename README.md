@@ -2,7 +2,7 @@
 
 React와 TypeScript를 활용한 할 일 관리 웹 애플리케이션입니다.
 
-[https://github.com/erinmzo/sparta-todolist](https://zomins.vercel.app/)
+https://zomins.vercel.app/
 
 ## 🛠 기술 스택
 
