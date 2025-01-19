@@ -1,12 +1,12 @@
 import { ErrorBoundary } from "@sentry/react";
-import { getTodos } from "../../hooks/todos/getTodos";
+import { useGetTodos } from "../../hooks/todos/useGetTodos";
 import { TodosType } from "../../types/todos";
 import Error from "../common/Error";
 import QueryStateHandler from "../common/QueryStateHandler";
 import TodoCard from "./TodosCard";
 
 function Todos() {
-  const { todos, isPending, isError } = getTodos();
+  const { todos, isPending, isError } = useGetTodos();
 
   return (
     <ErrorBoundary fallback={<Error />}>

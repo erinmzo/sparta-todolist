@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { todoApiService } from "../../api/todoApi";
 
-export function getTodos() {
+export function useGetTodos() {
   const {
     data: todos = [],
     isPending,

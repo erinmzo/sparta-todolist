@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import { getTodos } from "../../hooks/todos/getTodos";
+import { getTodos } from "../../hooks/todos/useGetTodos";
 import Todos from "./Todos";
 
 // getTodos 모킹
