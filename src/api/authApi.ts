@@ -44,11 +44,11 @@ export const authApiService = {
       Sentry.captureException(error);
     }
   },
-  updateProfile: async (avatar: string, nickname: string) => {
+  updateProfile: async (nickname: string) => {
     try {
       const { data } = await authApi.patch(
         "/profile",
-        { avatar, nickname },
+        { nickname },
         {
           headers: {
             Authorization: `Bearer ${token}`,

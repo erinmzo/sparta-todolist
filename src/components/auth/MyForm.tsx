@@ -1,17 +1,12 @@
-import { useInputChange } from "../../hooks/common/useInputChange";
-import { useAuthStore } from "../../zustand/useAuthStore";
+import { useUpdateProfile } from "../../hooks/auth/useUpdateProfile";
 import Button from "../common/Button";
 import Input from "../common/Input";
 
 function MyForm() {
-  const user = useAuthStore((state) => state.user);
-  const { input, handleChange } = useInputChange({
-    nickname: user?.nickname || "",
-  });
-  const { nickname } = input;
+  const { nickname, handleChange, handleSubmit } = useUpdateProfile();
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-4">
         <Input type="file" label="프로필 사진" />
         <Input type="text" label="닉네임" name="nickname" value={nickname} onChange={handleChange} />
