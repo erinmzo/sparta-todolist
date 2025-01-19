@@ -1,19 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { todoApiService } from "../../api/todoApi";
 import { STATUS } from "../../constants/todos";
-import { TodoType } from "../../types/todos";
+import useGetTodo from "../../hooks/todos/useGetTodo";
 import BackButton from "../common/BackButton";
 import QueryStateHandler from "../common/QueryStateHandler";
 function Todo({ id }: { id: string }) {
-  const {
-    data: todo,
-    isPending,
-    isError,
-  } = useQuery<TodoType>({
-    queryKey: ["todo", id],
-    queryFn: () => todoApiService.todoById(id),
-    enabled: !!id,
-  });
+  const { todo, isPending, isError } = useGetTodo(id);
 
   const status = todo ? (todo.completed ? STATUS.COMPLETED : STATUS.PENDING) : STATUS.PENDING;
 
